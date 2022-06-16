@@ -4,15 +4,6 @@ class Monster:
         self.health = health
         self.energy = energy
 
-    def __len__(self):
-        return self.health
-
-    def __abs__(self):
-        return self.energy
-
-    def __str__(self):
-        return f"Monster health is {self.health}"
-
     def attack(self, amount):
         print("Monster Attacked")
         print(f"Monster Attacked {amount} times")
@@ -26,6 +17,14 @@ class Monster:
         print(f"Monster health is now {self.health}")
 
 
-monster1 = Monster(10, 20)
+class Shark(Monster):
+    def __init__(self, health, energy, speed):
+        super().__init__(health, energy)
+        self.speed = speed
 
-print(monster1)
+    def bite(self):
+        print("Shark Bit")
+
+
+shark = Shark(speed=10, health=100, energy=50)
+print(shark.attack(10))
